@@ -51,7 +51,7 @@ export const FinalScreen: React.FC<FinalScreenProps> = ({
         className="mb-2 sm:mb-4"
       >
         <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-normal text-[#1E1E24] tracking-tight leading-tight">
-          Thank you for making it this far.
+          I love you doll
         </h2>
       </motion.div>
 
