@@ -1,0 +1,62 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index 73765aa..43f79b4 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -92,8 +92,6 @@ export function App() {
+       <AudioController
+         isMuted={isMuted}
+         setIsMuted={setIsMuted}
+-        reducedMotion={reducedMotion}
+-        setReducedMotion={setReducedMotion}
+         currentStage={stage}
+         onRestart={handleRestart}
+       />
+diff --git a/src/components/FinalScreen.tsx b/src/components/FinalScreen.tsx
+index 5a25003..47c3763 100644
+--- a/src/components/FinalScreen.tsx
++++ b/src/components/FinalScreen.tsx
+@@ -117,8 +117,8 @@ export const FinalScreen: React.FC<FinalScreenProps> = ({
+               <Heart className="w-3.5 h-3.5 text-[#E07A5F] fill-[#E07A5F]" />
+             </div>
+ 
+-            {/* Replay action */}
+-            <div className="mt-6 sm:mt-8 flex items-center justify-center">
++            {/* Replay & Freeplay actions */}
++            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+               <button
+                 onClick={onRestart}
+                 className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#1E1E24] text-[#FAF7F2] hover:bg-[#2D2D35] active:bg-[#0E0E12] transition-all text-xs font-medium cursor-pointer shadow-xs min-h-[44px]"
+@@ -126,6 +126,13 @@ export const FinalScreen: React.FC<FinalScreenProps> = ({
+                 <RefreshCw className="w-3.5 h-3.5" />
+                 <span>Replay from Beginning</span>
+               </button>
++              <button
++                onClick={onFreeplay}
++                className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-transparent text-[#5A5551] border border-[#E6E0D8] hover:bg-[#F3EFEA] hover:text-[#1E1E24] active:scale-95 transition-all text-xs font-medium cursor-pointer min-h-[44px]"
++              >
++                <Sparkles className="w-3.5 h-3.5" />
++                <span>Free Play Mode</span>
++              </button>
+             </div>
+           </motion.div>
+         )}
+diff --git a/src/components/HitCounter.tsx b/src/components/HitCounter.tsx
+index 9e09aff..195d464 100644
+--- a/src/components/HitCounter.tsx
++++ b/src/components/HitCounter.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ import { motion, AnimatePresence } from 'framer-motion';
+-import { Zap, HeartCrack } from 'lucide-react';
++import { HeartCrack } from 'lucide-react';
+ 
+ interface HitCounterProps {
+   hitCount: number;
+@@ -27,7 +27,6 @@ export const HitCounter: React.FC<HitCounterProps> = ({
+ 
+   const dialogue = getDialogue(hitCount);
+   const shatterUnlocked = hitCount >= 8;
+-  const progressPercent = Math.min(100, (hitCount / 8) * 100);
+ 
+   return (
+     <div className="flex flex-col items-center gap-4 w-full max-w-sm px-4">

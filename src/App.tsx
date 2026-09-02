@@ -92,8 +92,6 @@ export function App() {
       <AudioController
         isMuted={isMuted}
         setIsMuted={setIsMuted}
-        reducedMotion={reducedMotion}
-        setReducedMotion={setReducedMotion}
         currentStage={stage}
         onRestart={handleRestart}
       />

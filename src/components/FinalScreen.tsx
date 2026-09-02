@@ -117,14 +117,21 @@ export const FinalScreen: React.FC<FinalScreenProps> = ({
               <Heart className="w-3.5 h-3.5 text-[#E07A5F] fill-[#E07A5F]" />
             </div>
 
-            {/* Replay action */}
-            <div className="mt-6 sm:mt-8 flex items-center justify-center">
+            {/* Replay & Freeplay actions */}
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={onRestart}
                 className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#1E1E24] text-[#FAF7F2] hover:bg-[#2D2D35] active:bg-[#0E0E12] transition-all text-xs font-medium cursor-pointer shadow-xs min-h-[44px]"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>Replay from Beginning</span>
+              </button>
+              <button
+                onClick={onFreeplay}
+                className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-transparent text-[#5A5551] border border-[#E6E0D8] hover:bg-[#F3EFEA] hover:text-[#1E1E24] active:scale-95 transition-all text-xs font-medium cursor-pointer min-h-[44px]"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Free Play Mode</span>
               </button>
             </div>
           </motion.div>

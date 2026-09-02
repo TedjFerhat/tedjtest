@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, HeartCrack } from 'lucide-react';
+import { HeartCrack } from 'lucide-react';
 
 interface HitCounterProps {
   hitCount: number;
@@ -27,7 +27,6 @@ export const HitCounter: React.FC<HitCounterProps> = ({
 
   const dialogue = getDialogue(hitCount);
   const shatterUnlocked = hitCount >= 8;
-  const progressPercent = Math.min(100, (hitCount / 8) * 100);
 
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-sm px-4">
