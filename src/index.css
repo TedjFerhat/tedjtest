@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF7F2;
+    color: #1E1E24;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    -webkit-user-select: none;
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+  }
+}
+
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes hit-wobble {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(0.85, 1.15) rotate(-6deg) translateY(-12px); }
+  50% { transform: scale(1.18, 0.82) rotate(6deg) translateY(6px); }
+  75% { transform: scale(0.95, 1.05) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes comic-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translateY(-25px) rotate(0deg);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s ease-in-out infinite;
+}
+
+/* Custom delicate noise or warm tint */
+.warm-vignette {
+  background: radial-gradient(circle at 50% 40%, rgba(254, 243, 235, 0.4) 0%, rgba(250, 247, 242, 0.95) 75%);
+}
+
+/* Smooth glass accent without being excessive */
+.soft-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 224, 216, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(30, 30, 36, 0.04), 0 2px 6px -1px rgba(30, 30, 36, 0.02);
+}
+
+.btn-primary {
+  background: #1E1E24;
+  color: #FAF7F2;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background: #2D2D35;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px -4px rgba(30, 30, 36, 0.2);
+}
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
